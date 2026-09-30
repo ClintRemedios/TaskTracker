@@ -1,0 +1,218 @@
+.page {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.page h1 {
+  margin: 0 0 0.35rem;
+}
+
+.lede {
+  margin: 0;
+  color: var(--muted);
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+.empty {
+  color: var(--muted);
+  margin: 1rem 0 0;
+}
+
+.error {
+  color: var(--danger);
+  margin: 0.75rem 0 0;
+}
+
+.task-form {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.task-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.task-form input {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.55rem 0.7rem;
+  background: #fff;
+}
+
+.task-form button,
+.clean {
+  border: 0;
+  border-radius: 8px;
+  padding: 0.65rem 0.9rem;
+  background: var(--accent);
+  color: #fff;
+}
+
+.task-list {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.task-item {
+  position: relative;
+}
+
+.task-item.is-dragging .task-card {
+  opacity: 0.45;
+}
+
+.task-card {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr) auto auto;
+  column-gap: 0.75rem;
+  align-items: center;
+  padding-right: 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.drag-handle {
+  grid-column: 1;
+  align-self: stretch;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  border: 0;
+  border-right: 1px solid var(--border);
+  background: #f3efe7;
+  color: #8a8176;
+  cursor: grab;
+  padding: 0;
+}
+
+.drag-handle:hover,
+.drag-handle:focus-visible {
+  background: #e7e1d6;
+  color: var(--ink);
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+}
+
+.drag-grip {
+  width: 10px;
+  height: 16px;
+  background-image: radial-gradient(circle, currentColor 1.4px, transparent 1.6px);
+  background-size: 5px 5.5px;
+  background-position: center;
+}
+
+.drop-line {
+  position: absolute;
+  left: 0.4rem;
+  right: 0.4rem;
+  height: 3px;
+  border-radius: 999px;
+  background: var(--accent);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.drop-line::before,
+.drop-line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translateY(-50%);
+}
+
+.drop-line::before {
+  left: 0;
+}
+
+.drop-line::after {
+  right: 0;
+}
+
+.drop-line-before {
+  top: calc(-0.25rem - 1.5px);
+}
+
+.drop-line-after {
+  bottom: calc(-0.25rem - 1.5px);
+}
+
+.task-due {
+  grid-column: 3;
+  justify-self: end;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  padding-block: 0.65rem;
+}
+
+.task-item.completed .task-check span {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.task-check {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-block: 0.65rem;
+}
+
+.icon-button {
+  grid-column: 4;
+  justify-self: end;
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 0;
+  background: transparent;
+  color: var(--danger);
+  font-size: 1.25rem;
+  line-height: 1;
+  padding: 0;
+}
+
+@media (max-width: 640px) {
+  .task-form {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    flex-direction: column;
+  }
+}

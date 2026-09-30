@@ -1,0 +1,8 @@
+I want a create a task management web app. The purpose of this app is for users to have a check list, or a to do list that they can add new task, check it off when its done and completely delete it if its not needed anymore.
+
+Features required
+1. add new task
+2. mark task as done
+3. remove task
+4. reorganize order of the task
+

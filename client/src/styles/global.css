@@ -1,0 +1,32 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f1ea;
+  --surface: #fffdf8;
+  --ink: #1f1b16;
+  --muted: #6b645c;
+  --accent: #2f5d50;
+  --danger: #9b3d3d;
+  --border: #ddd4c8;
+  --shadow: 0 8px 24px rgba(31, 27, 22, 0.08);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
